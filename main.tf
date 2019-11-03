@@ -434,7 +434,7 @@ resource "aws_security_group_rule" "computed_ingress_with_self" {
 ##################################
 # Security group rules with "cidr_blocks" and it uses list of rules names
 resource "aws_security_group_rule" "egress_rules" {
-  count = var.create ? length(var.egress_rules) : 0
+  count = var.create ? length(var.egress_cidr_blocks) : 0
 
   security_group_id = local.this_sg_id
   type              = "egress"
